@@ -1,0 +1,31 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Define the temperature array
+temperatures = np.array([25, 30, 35, 40, 45, 50, 55, 60])
+
+# Define the average extension for each weight
+avg_extension_51g = np.array([0, 0.06, 0.12, 0.13, 0.21, 0.2, 0.22, 0.17])
+avg_extension_61g = np.array([0, 0.06, 0.09, 0.09, 0.16, 0.16, 0.21, 0.15])
+avg_extension_41g = np.array([0, 0.02, 0.04, 0.12, 0.18, 0.21, 0.24, 0.14])
+
+# Define the error for all data points
+error = 0.01
+
+# Create the plot
+plt.figure(figsize=(10, 6))
+
+# Plot the data with error bars for each weight
+plt.errorbar(temperatures, avg_extension_51g, yerr=error, label='51.1g', fmt='o-', capsize=5)
+plt.errorbar(temperatures, avg_extension_61g, yerr=error, label='61.28g', fmt='s-', capsize=5)
+plt.errorbar(temperatures, avg_extension_41g, yerr=error, label='41.1g', fmt='^-', capsize=5)
+
+# Add the title and labels to the plot
+plt.title('Average Extension vs Temperature at Different Weights')
+plt.xlabel('Temperature (℃)')
+plt.ylabel('Average Extension (cm)')
+plt.legend()
+plt.grid(True)
+
+# Show the plot
+plt.show()
